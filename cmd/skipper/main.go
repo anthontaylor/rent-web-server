@@ -51,7 +51,7 @@ func main() {
 
 	go func() {
 		logger.Log("transport", "HTTP", "addr", *httpAddr)
-		errs <- http.ListenAndServe(*httpAddr, nil)
+		errs <- http.ListenAndServe(*httpAddr, h)
 	}()
 
 	logger.Log("exit", <-errs)
